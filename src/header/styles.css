@@ -1,0 +1,11 @@
+.header {
+    background: #00143c;
+    display: block;
+    width: 100%;
+    padding: 8px 0;
+}
+
+.header > * {
+    display: inline-block;
+    vertical-align: middle;
+}

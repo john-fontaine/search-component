@@ -1,0 +1,144 @@
+.burger {
+    -moz-transition-duration: .15s;
+    -o-transition-duration: .15s;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -moz-transition-property: opacity,background-color;
+    -o-transition-property: opacity,background-color;
+    -webkit-transition-property: opacity,background-color;
+    transition-property: opacity,background-color;
+    -moz-transition-timing-function: linear;
+    -o-transition-timing-function: linear;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    cursor: pointer;
+    padding: 18.5px 8px;
+    background-color: transparent;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    outline: 0;
+    overflow: visible;
+    text-transform: none;
+}
+
+.box {
+    height: 16px;
+    position: relative;
+    width: 20px;
+    display: inline-block;
+}
+
+.inner {
+    display: block;
+    margin-top: -1px;
+    top: 50%
+}
+
+.inner,
+.inner::after,
+.inner::before {
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -moz-transition-duration: .15s;
+    -o-transition-duration: .15s;
+    -webkit-transition-duration: .15s;
+    transition-duration: .15s;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: transform;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    background-color: #fff;
+    height: 2px;
+    position: absolute;
+    width: 20px;
+}
+
+.inner::after,
+.inner::before {
+    content: '';
+    display: block;
+}
+
+.inner::before {
+    top: -7px;
+}
+
+.inner::after {
+    bottom: -7px;
+}
+
+.spin .inner {
+    -moz-transition-duration: .3s;
+    -o-transition-duration: .3s;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -moz-transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+    -o-transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+    -webkit-transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+    transition-timing-function: cubic-bezier(.55,.055,.675,.19);
+}
+
+.spin .inner::before {
+    -moz-transition: top .1s ease-in .34s,opacity .1s ease-in;
+    -o-transition: top .1s ease-in .34s,opacity .1s ease-in;
+    -webkit-transition: top .1s ease-in,opacity .1s ease-in;
+    -webkit-transition-delay: .34s,0s;
+    transition: top .1s ease-in .34s,opacity .1s ease-in;
+}
+
+.spin .inner::after {
+    -moz-transition: bottom .1s ease-in .34s,-moz-transform .3s cubic-bezier(.55,.055,.675,.19);
+    -o-transition: bottom .1s ease-in .34s,-o-transform .3s cubic-bezier(.55,.055,.675,.19);
+    -webkit-transition: bottom .1s ease-in,-webkit-transform .3s cubic-bezier(.55,.055,.675,.19);
+    -webkit-transition-delay: .34s,0s;
+    transition: bottom .1s ease-in .34s,transform .3s cubic-bezier(.55,.055,.675,.19);
+}
+
+.spin.is-active {
+    background-color: #0E283c;
+}
+
+.spin.is-active .inner {
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+    -moz-transition-delay: .14s;
+    -o-transition-delay: .14s;
+    -webkit-transition-delay: .14s;
+    transition-delay: .14s;
+    -moz-transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    -o-transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    -webkit-transition-timing-function: cubic-bezier(.215,.61,.355,1);
+    transition-timing-function: cubic-bezier(.215,.61,.355,1);
+}
+
+.spin.is-active .inner::before {
+    -moz-transition: top .1s ease-out,opacity .1s ease-out .14s;
+    -o-transition: top .1s ease-out,opacity .1s ease-out .14s;
+    -webkit-transition: top .1s ease-out,opacity .1s ease-out;
+    -webkit-transition-delay: 0s,.14s;
+    transition: top .1s ease-out,opacity .1s ease-out .14s;
+    opacity: 0;
+    top: 0;
+}
+
+.spin.is-active .inner::after {
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -moz-transition: bottom .1s ease-out,-moz-transform .3s cubic-bezier(.215,.61,.355,1) .14s;
+    -o-transition: bottom .1s ease-out,-o-transform .3s cubic-bezier(.215,.61,.355,1) .14s;
+    -webkit-transition: bottom .1s ease-out,-webkit-transform .3s cubic-bezier(.215,.61,.355,1);
+    -webkit-transition-delay: 0s,.14s;
+    transition: bottom .1s ease-out,transform .3s cubic-bezier(.215,.61,.355,1) .14s;
+    bottom: 0;
+}

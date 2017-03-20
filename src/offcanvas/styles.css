@@ -1,0 +1,32 @@
+.offcanvas {
+    display: block;
+    width: 100%;
+}
+
+main {
+    width: 100%;
+}
+
+aside {
+    left: -370px;
+    right: -370px;
+    width: 370px;
+}
+
+.offcanvas.is-active aside:first-child {
+    display: inline-block;
+    left: 0px;
+}
+
+.offcanvas.is-active aside:first-child + .offcanvas.is-active main {
+    left: 370px;
+}
+
+.offcanvas.is-active aside:last-child {
+    display: inline-block;
+    right: 0px;
+}
+
+.offcanvas.is-active aside:last-child + .offcanvas.is-active main {
+    right: 370px;
+}

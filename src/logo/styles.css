@@ -1,0 +1,16 @@
+.logo {
+    background: url('./logo-mobile.svg') center center no-repeat;
+    display: inline-block;
+    margin: 0 12px;
+    width: 36px;
+    height: 20px;
+    transition: background 0.3s;
+}
+
+@media screen and (min-width: 375px) {
+    .logo {
+        background: url('./logo.svg') center center no-repeat;
+        min-width: 115px;
+        height: 24px;
+    }
+}

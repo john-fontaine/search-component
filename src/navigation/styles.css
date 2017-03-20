@@ -1,0 +1,44 @@
+.navigation {
+    display: inline-block;
+}
+
+.navigation a {
+    margin: 0 16px;
+    line-height: 15px;
+    color: #fff;
+    font-size: 12px;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.navigation a:first-child {
+    margin-left: 0;
+}
+
+.navigation a:last-child {
+    margin-right: 0;
+}
+
+.navigation a.active {
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s;
+    border-bottom: 1px solid #faff05;
+    padding-bottom: 3px;
+}
+
+.mobile nav {
+    display: none;
+    position: absolute;
+}
+
+.mobile nav.is-active {
+    display: block;
+    top: 0;
+    left: 0;
+    background: #fff;
+}
+
+.mobile nav.is-active a {
+    display: block;
+}
