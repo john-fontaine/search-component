@@ -27,18 +27,23 @@
     padding-bottom: 3px;
 }
 
-.mobile nav {
-    display: none;
-    position: absolute;
+.mobile {
+    padding: 15px;
 }
 
-.mobile nav.is-active {
+.mobile a {
+    margin: 8px 0;
+    color: #000;
+    font-size: 14px;
+    line-height: 15px;
+    opacity: 0.6;
+    text-decoration: none;
     display: block;
-    top: 0;
-    left: 0;
-    background: #fff;
 }
 
-.mobile nav.is-active a {
-    display: block;
+.mobile a.active {
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s;
+    padding-bottom: 3px;
 }

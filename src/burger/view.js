@@ -7,7 +7,10 @@ export let view = {};
 
 view.init = (model, intents) => view.ready(model, intents);
 
-view.ready = (model, intents) => ({ burger: theme(model, intents) });
+view.ready = (model, intents) => {
+
+    return { burger: theme(model, intents) };
+};
 
 view.display = representation => {
 

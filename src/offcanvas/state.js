@@ -17,7 +17,7 @@ state.representation = model => {
     }
 };
 
-state.ready = model => typeof model !== 'undefined';
+state.ready = model => true; //typeof model !== 'undefined';
 
 state.nextAction = () => {
 

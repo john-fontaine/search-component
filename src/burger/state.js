@@ -32,7 +32,9 @@ state.nextAction = model => {
 
     if (model && typeof model.isActive !== 'undefined') {
 
-        //window.postMessage({ component: 'burger', model: model }, location.origin);
-        //headerActions.toggle(model);
+        if (window.offcanvasActions) {
+
+            window.offcanvasActions.toggle(model);
+        }
     }
 }

@@ -9,10 +9,7 @@ model.init = state => {
 
 model.acceptor = data => {
 
-    if (data.component === 'burger' && data.action === 'toggle') {
-
-        return data;
-    }
+    return data;
 };
 
 model.present = data => {

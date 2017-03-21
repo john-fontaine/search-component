@@ -3,18 +3,15 @@ import { model } from './model.js';
 import { actions } from './actions.js';
 import { view } from './view.js';
 
-export default {
+export default () => {
 
-    init: () => {
+    state.init(view);
 
-        state.init(view);
+    model.init(state);
 
-        model.init(state);
+    actions.init(model.present);
 
-        actions.init(model.present);
+    state.render(model.getInitialState());
 
-        state.render(model.getInitialState());
-
-        window['burgerActions'] = actions;
-    }
+    window['burgerActions'] = actions;
 };

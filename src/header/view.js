@@ -3,13 +3,19 @@ import { desktopHeader, mobileHeader } from './theme.js';
 
 export let view = {};
 
+view.props = {};
+
 view.init = model => view.ready(model);
 
-view.ready = model => ({
+view.ready = model => {
 
-    mobileHeader: mobileHeader(),
-    desktopHeader: desktopHeader()
-});
+    view.props.children = model.children;
+
+    return {
+        mobileheader: mobileHeader(),
+        desktopheader: desktopHeader()
+    };
+};
 
 view.display = representation => {
 
@@ -19,7 +25,9 @@ view.display = representation => {
 
         if (component) {
 
-            outerHTML(component, representation[el].replace('</header>', component.innerHTML + '</header>'));
+            outerHTML(component, representation[el]);
+
+            view.props.children.forEach(c => c());
         }
     });
 };

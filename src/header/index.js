@@ -1,22 +1,22 @@
+import logo from '../logo/index.js';
+import navigation from '../navigation/index.js';
+import burger from '../burger/index.js';
+
 import { state } from './state.js';
 import { model } from './model.js';
 import { actions } from './actions.js';
 import { view } from './view.js';
 
-state.init(view);
+export default () => {
 
-model.init(state);
+    state.init(view);
 
-actions.init(model.present);
+    model.init(state);
 
-state.render();
+    actions.init(model.present);
 
-window['headerActions'] = actions;
+    window['headerActions'] = actions;
+    state.render({ children: [navigation, logo, burger] });
 
-import logo from '../logo/index.js';
-import navigation from '../navigation/index.js';
-import burger from '../burger/index.js';
 
-logo.init();
-navigation.init();
-burger.init();
+};

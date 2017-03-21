@@ -3,12 +3,15 @@ import { model } from './model.js';
 import { actions } from './actions.js';
 import { view } from './view.js';
 
-state.init(view);
+export default (props) => {
 
-model.init(state);
+    state.init(view);
 
-actions.init(model.present);
+    model.init(state);
 
-state.render(model.getInitialState());
+    actions.init(model.present);
 
-window['offCanvasActions'] = actions;
+    //window.offCanvasActions = actions;
+
+    state.render(model.getInitialState(props));
+};

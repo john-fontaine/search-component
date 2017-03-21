@@ -9,8 +9,8 @@ view.init = model => view.ready(model);
 
 view.ready = model=> ({
 
-    desktopNavigation: desktop(model),
-    mobileNavigation: mobile(model)
+    desktopnavigation: desktop(model),
+    mobilenavigation: mobile(model)
 });
 
 view.display = representation => {

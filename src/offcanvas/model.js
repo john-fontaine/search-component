@@ -2,7 +2,11 @@
 
 export let model = {};
 
-model.getInitialState = () => ({ isActive: false });
+model.getInitialState = (props) => ({
+
+    children: props.children,
+    isActive: false
+});
 
 model.init = state => {
 
@@ -13,7 +17,7 @@ model.acceptor = data => {
 
     if (data && typeof data.isActive !== 'undefined') {
 
-        return { isActive: !data.isActive };
+        return data;
     }
 };
 

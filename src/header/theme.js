@@ -14,7 +14,7 @@ function desktopHeader () {
     return `
         <header class="${styles.header}">
             <logo></logo>
-            <desktopNavigation></desktopNavigation>
+            <desktopnavigation></desktopnavigation>
         </header>`;
 }
 

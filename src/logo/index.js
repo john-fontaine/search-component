@@ -2,14 +2,11 @@ import { state } from './state.js';
 import { model } from './model.js';
 import { view } from './view.js';
 
-export default {
+export default () => {
 
-    init: () => {
+    state.init(view);
 
-        state.init(view);
+    model.init(state);
 
-        model.init(state);
-
-        state.render(model.data);
-    }
+    state.render(model.data);
 };
