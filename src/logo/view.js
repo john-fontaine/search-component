@@ -1,21 +1,6 @@
-import { outerHTML } from 'diffhtml';
-import theme  from './theme.js';
+import styles from './styles.css';
+import { a } from '../utils/elements';
 
-export let view = {};
+const view = model => a({ id: model.id, className: styles.logo, title: model.title });
 
-view.init = model => view.ready(model);
-
-view.ready = model => ({ logo: theme(model) });
-
-view.display = representation => {
-
-    Object.keys(representation).forEach(function (el) {
-
-        const component = document.getElementsByTagName(el)[0] || document.getElementById(el);
-
-        if (component) {
-
-            outerHTML(component, representation[el]);
-        }
-    });
-};
+export default view;

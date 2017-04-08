@@ -1,40 +1,19 @@
-import { actions } from './actions.js';
+import { outerHTML } from 'diffhtml';
 
-export let state =  {};
+const state = (view, actions) => ({
 
-state.init = view => {
+    render: model => {
 
-    state.view = view;
-};
+        let component = document.getElementById(model.id);
 
-state.representation = model => {
+        if (component === null) {
 
-    let representation = 'oops... something went wrong, the system is in an invalid state';
+            document.body.appendChild(view(model, actions)); // @TODO: Pass the root and fallback to body
+        } else {
 
-    if (state.ready(model)) {
-
-        representation = state.view.ready(model, actions.intents);
-
-        state.view.display(representation);
-    }
-};
-
-state.ready = model => typeof model !== 'undefined'
-
-state.render = model => {
-
-    state.representation(model);
-
-    state.nextAction(model);
-};
-
-state.nextAction = model => {
-
-    if (model && typeof model.isActive !== 'undefined') {
-
-        if (window.offcanvasActions) {
-
-            window.offcanvasActions.toggle(model);
+            outerHTML(component, view(model, actions));
         }
     }
-}
+});
+
+export default state;

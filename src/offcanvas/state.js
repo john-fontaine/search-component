@@ -1,31 +1,19 @@
-export let state =  {};
+import { outerHTML } from 'diffhtml';
 
-state.init = view => {
+const state = view => ({
 
-    state.view = view;
-};
+    render: model => {
 
-state.representation = model => {
+        let component = document.getElementById(model.id);
 
-    let representation = 'oops... something went wrong, the system is in an invalid state';
+        if (component === null) {
 
-    if (state.ready(model)) {
+            document.body.appendChild(view(model));
+        } else {
 
-        representation = state.view.ready(model);
-
-        state.view.display(representation);
+            outerHTML(component, view(model));
+        }
     }
-};
+});
 
-state.ready = model => true; //typeof model !== 'undefined';
-
-state.nextAction = () => {
-
-};
-
-state.render = model => {
-
-    state.representation(model);
-
-    state.nextAction();
-};
+export default state;

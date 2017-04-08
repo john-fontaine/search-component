@@ -1,0 +1,17 @@
+.rx {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: red;
+    color: white;
+}
+
+.action {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.message {
+    font-size: 10px;
+}

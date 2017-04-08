@@ -1,34 +1,17 @@
-import { innerHTML } from 'diffhtml';
-import { desktop, mobile } from './theme.js';
+import styles from './styles.css';
+import {
+    div
+} from '../utils/elements';
 
-export let view = {};
+import Header from '../header/index';
 
-view.props = {};
+// @TOOD: Make the view render() instead of the state??
 
-view.init = model => view.ready(model);
+const view = model =>
 
-view.ready = model => {
+    div({ id: model.id, className: styles.app },
 
-    view.props = model;
+        Header.createElement(model.header)
+    );
 
-    return {
-
-        desktop: desktop(model),
-        mobile: mobile(model)
-    };
-};
-
-view.display = representation => {
-
-    Object.keys(representation).forEach(function (el) {
-
-        const component = document.getElementById(el);
-
-        if (component) {
-
-            innerHTML(component, representation[el]);
-
-            view.props.component({ children: view.props.children });
-        }
-    });
-};
+export default view;

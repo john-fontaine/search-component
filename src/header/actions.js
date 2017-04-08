@@ -1,6 +1,16 @@
-export let actions = {};
+import Burger from '../burger/index';
+import { Rx } from '../rx/index';
 
-actions.init = present => {
+const toggleStream = new Rx();
 
-    actions.present = present;
+const actions = propose => {
+
+    //toggleStream.observe(propose);
 };
+
+const intents = {
+
+    //onBurgerToggle = b.onToggle;
+};
+
+export { actions, intents };

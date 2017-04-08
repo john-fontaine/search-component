@@ -1,1 +1,3 @@
-import app from './app';
+import App from './app';
+
+document.body.appendChild(App.createElement());

@@ -12,7 +12,8 @@
     -webkit-transition-timing-function: linear;
     transition-timing-function: linear;
     cursor: pointer;
-    padding: 18px 8px;
+    padding: 12px 8px;
+    height: 44px;
     background-color: transparent;
     border: 0;
     color: inherit;
@@ -32,7 +33,7 @@
 
 .inner {
     display: block;
-    margin-top: -1px;
+    margin-top: 1px;
     top: 50%
 }
 
@@ -99,10 +100,6 @@
     -webkit-transition: bottom .1s ease-in,-webkit-transform .3s cubic-bezier(.55,.055,.675,.19);
     -webkit-transition-delay: .34s,0s;
     transition: bottom .1s ease-in .34s,transform .3s cubic-bezier(.55,.055,.675,.19);
-}
-
-.spin.is-active {
-    background-color: #0E283c;
 }
 
 .spin.is-active .inner {

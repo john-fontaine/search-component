@@ -1,12 +1,11 @@
-import { state } from './state.js';
-import { model } from './model.js';
-import { view } from './view.js';
+import createElement from '../utils/createElement';
+import receive from './receive.js';
+import view from './view.js';
+import initialModel from './model.js';
 
-export default () => {
+const Logo = createElement({
+    propose: receive(initialModel),
+    view: view
+});
 
-    state.init(view);
-
-    model.init(state);
-
-    state.render(model.data);
-};
+export default Logo;

@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-main {
+.wrapper {
     width: 100%;
     height: 100%;
     position: relative;
@@ -30,7 +30,7 @@ main {
     left: -370px;
 }
 
-.offcanvas.is-active main {
+.offcanvas.is-active .wrapper {
     -webkit-transform: translateX(370px);
     transform: translateX(370px);
 

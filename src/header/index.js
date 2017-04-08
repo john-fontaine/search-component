@@ -1,22 +1,16 @@
-import logo from '../logo/index.js';
-import navigation from '../navigation/index.js';
-import burger from '../burger/index.js';
+import createElement from '../utils/createElement';
+import { actions, intents } from './actions';
+import receive from './receive';
+import view from './view';
+import initialModel from './model';
+import state from './state';
 
-import { state } from './state.js';
-import { model } from './model.js';
-import { actions } from './actions.js';
-import { view } from './view.js';
+const Header = createElement({
+    actions: actions,
+    intents: intents,
+    propose: receive(initialModel),
+    state: state(view, intents),
+    view: view
+});
 
-export default () => {
-
-    state.init(view);
-
-    model.init(state);
-
-    actions.init(model.present);
-
-    window['headerActions'] = actions;
-    state.render({ children: [navigation, logo, burger] });
-
-
-};
+export default Header;

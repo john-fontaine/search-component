@@ -1,16 +1,17 @@
-export let actions = {};
+import { Rx } from '../rx/index.js';
 
-actions.init = present => {
+const toggleStream = new Rx();
 
-    actions.present = present;
+const actions = propose => {
+
+    toggleStream.observe(propose);
 };
 
-actions.intents = {
+const intents = {
 
-    toggle: 'burgerActions.toggle'
+    toggle: toggleStream.update,
+
+    observe: toggleStream.observe
 };
 
-actions.toggle = data => {
-
-    actions.present(data);
-};
+export { actions, intents };

@@ -1,17 +1,16 @@
-import { state } from './state.js';
-import { model } from './model.js';
-import { actions } from './actions.js';
-import { view } from './view.js';
+import createElement from '../utils/createElement';
+import { actions, intents } from './actions.js';
+import receive from './receive.js';
+import view from './view.js';
+import initialModel from './model.js';
+import state from './state.js';
 
-export default () => {
+const Burger = createElement({
+    actions: actions,
+    intents: intents,
+    propose: receive(initialModel),
+    state: state(view, intents),
+    view: view
+});
 
-    state.init(view);
-
-    model.init(state);
-
-    actions.init(model.present);
-
-    state.render(model.getInitialState());
-
-    window['burgerActions'] = actions;
-};
+export default Burger;

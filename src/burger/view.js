@@ -1,26 +1,21 @@
-// @TODO: Add a mounting point
+import styles from './styles.css';
+import {
+    button,
+    span
+} from '../utils/elements';
 
-import { outerHTML } from 'diffhtml';
-import theme from './theme.js';
+const view = (model, intents) =>
 
-export let view = {};
+    button({
+        id: model.id,
+        className: [styles.burger, styles.spin, model.isActive ? styles.isActive : ''].join(' '),
+        onclick: intents.toggle
+    },
 
-view.init = (model, intents) => view.ready(model, intents);
+        span({ className: styles.box },
 
-view.ready = (model, intents) => {
+            span({ className: styles.inner })
+        )
+    );
 
-    return { burger: theme(model, intents) };
-};
-
-view.display = representation => {
-
-    Object.keys(representation).forEach(function (el) {
-
-        const component = document.getElementsByTagName(el)[0] || document.getElementById(el);
-
-        if (component) {
-
-            outerHTML(component, representation[el]);
-        }
-    });
-};
+export default view;

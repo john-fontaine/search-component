@@ -1,33 +1,26 @@
-import { outerHTML } from 'diffhtml';
-import { desktopHeader, mobileHeader } from './theme.js';
+import styles from './styles.css';
+import {
+    button,
+    header
+} from '../utils/elements';
 
-export let view = {};
+import Logo from '../logo/index';
+import LoginModal from '../loginModal/index';
+import Navigation from '../navigation/index';
+import Join from '../join/index';
 
-view.props = {};
+const view = (model, intents) => {
 
-view.init = model => view.ready(model);
+    return header({ id: model.id, className: styles.header },
 
-view.ready = model => {
+        Logo.createElement(),
 
-    view.props.children = model.children;
+        Navigation.createElement(),
 
-    return {
-        mobileheader: mobileHeader(),
-        desktopheader: desktopHeader()
-    };
+        Join.createElement(),
+
+        button({ className: styles.login, onclick: LoginModal.intents.toggle }, `Login`)
+    );
 };
 
-view.display = representation => {
-
-    Object.keys(representation).forEach(function (el) {
-
-        const component = document.getElementsByTagName(el)[0] || document.getElementById(el);
-
-        if (component) {
-
-            outerHTML(component, representation[el]);
-
-            view.props.children.forEach(c => c());
-        }
-    });
-};
+export default view;

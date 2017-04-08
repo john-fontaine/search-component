@@ -2,10 +2,27 @@
     background: #00143c;
     display: block;
     width: 100%;
-    padding: 8px 0;
+    height: 44px;
 }
 
 .header > * {
     display: inline-block;
     vertical-align: middle;
+}
+
+.button {
+    border-radius: 2px;
+    border: 1px solid #00afff;
+    color: #fff;
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    margin: 8px 4px;
+    padding: 7px 11px;
+}
+
+.login {
+    composes: button;
+    background: transparent;
 }

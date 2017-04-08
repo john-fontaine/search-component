@@ -1,0 +1,68 @@
+.modal {
+    font-family: 'WHHoxtonWeb';
+}
+
+.modal:before {
+    content: '';
+    display: none;
+    background: rgba(0, 0, 0, .6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.inner {
+    background: #fefefe;
+    display: none;
+    position: fixed;
+    top: -100%;
+    z-index: 11;
+}
+
+.header {
+    min-height: 24px;
+    padding: 8px;
+    background-color: #184b74;
+    color: #fff;
+    font-size: 18px;
+}
+
+.close {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0;
+    color: #e5e5e5;
+    cursor: pointer;
+    font-size: 30px;
+    height: 40px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: background-color 0.25s linear;
+    width: 40px;
+    outline: 0;
+}
+
+.close:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.show:before {
+    display: block;
+}
+
+.show .inner {
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main {
+
+}

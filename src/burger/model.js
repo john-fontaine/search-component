@@ -1,21 +1,6 @@
-export let model = {};
-
-model.getInitialState = () => ({ isActive: false });
-
-model.init = state => {
-
-    model.state = state;
+const initialModel = {
+    id: 'burger',
+    isActive: false
 };
 
-model.acceptor = data => {
-
-    if (data) {
-
-        return { isActive: !data.isActive };
-    }
-};
-
-model.present = data => {
-
-    model.state.render(model.acceptor(data));
-};
+export default initialModel;

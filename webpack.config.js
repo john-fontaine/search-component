@@ -30,7 +30,7 @@ module.exports = {
             {
                 test: /\.css/,
                 include: __dirname + '/src',
-                loaders: ['style-loader', 'css-loader?modules&camelCase=dashes&importLoaders=1&localIdentName=[name]__[local]--[hash:base64:5]']
+                loaders: ['style-loader', 'css-loader?modules&camelCase=dashes&importLoaders=1&localIdentName=[local]--[hash:base64:5]']
             },
             {
                 test: /\.(png|jpg|svg|eot|woff|woff2|ttf)$/,

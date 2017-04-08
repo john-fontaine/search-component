@@ -1,18 +1,6 @@
-// TODO: Consider having acceptor array of functions acceptor = [ query, search ]
-
-export let model = {};
-
-model.init = state => {
-
-    model.state = state;
+const initialModel = {
+    id: 'app',
+    header: { id: 'header-app' }
 };
 
-model.acceptor = data => {
-
-    return data;
-};
-
-model.present = data => {
-
-    model.state.render(model.acceptor(data));
-};
+export default initialModel;

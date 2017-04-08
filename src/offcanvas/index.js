@@ -1,17 +1,16 @@
-import { state } from './state.js';
-import { model } from './model.js';
-import { actions } from './actions.js';
-import { view } from './view.js';
+import createElement from '../utils/createElement';
+import { actions, intents } from './actions.js';
+import receive from './receive.js';
+import view from './view.js';
+import initialModel from './model.js';
+import state from './state.js';
 
-export default (props) => {
+const Offcanvas = createElement({
+    actions: actions,
+    intents: intents,
+    propose: receive(initialModel),
+    state: state(view),
+    view: view
+});
 
-    state.init(view);
-
-    model.init(state);
-
-    actions.init(model.present);
-
-    //window.offCanvasActions = actions;
-
-    state.render(model.getInitialState(props));
-};
+export default Offcanvas;

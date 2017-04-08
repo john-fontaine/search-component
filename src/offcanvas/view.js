@@ -1,37 +1,17 @@
-import { outerHTML } from 'diffhtml';
-import theme from './theme.js';
+import styles from './styles.css';
+import {
+    section,
+    main
+} from '../utils/elements';
 
-export let view = {};
+const view = model =>
 
-view.init = (model) => view.ready(model);
+    section({ id: model.id, className: [styles.offcanvas, model.isActive ? styles.isActive : ''].join(' ') },
 
-view.props = {};
+        main({ className: styles.wrapper },
 
-view.ready = (model) => {
+            model.children
+        )
+    );
 
-    view.props.children = model.children;
-
-    return { offcanvas: theme(model) };
-};
-
-view.display = representation => {
-
-    const getMountPoint = (el) => el.querySelector('main') || el;
-
-    Object.keys(representation).forEach(function (el) {
-
-        const component = document.getElementsByTagName(el)[0] || document.getElementById(el);
-
-        if (component) {
-
-            const children = getMountPoint(component).innerHTML;
-
-            outerHTML(component, representation[el].replace('</main>', children + '</main>'));
-
-            if (view.props && view.props.children) {
-
-                view.props.children.forEach(c => c());
-            }
-        }
-    });
-};
+export default view;
