@@ -1,10 +1,11 @@
 const initialModel = {
 
     modal: {
-        id: 'login-modal',
+        id: 'modal',
         showCloseButton: true,
         showHeader: true,
         title: 'Login',
+        show: true,
     },
 
     login: {

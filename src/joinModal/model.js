@@ -1,6 +1,9 @@
 const initialModel = {
     modal: {
-        id: 'join-modal'
+        id: 'modal',
+        showCloseButton: false,
+        showHeader: false,
+        show: true,
     },
 
     iframe: {

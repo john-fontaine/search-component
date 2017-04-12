@@ -11,24 +11,32 @@ const nap = model => {
 const destroy = model => {
 
     const component = document.getElementById(model.id);
-    component.parentElement.removeChild(component);
+
+    if (component !== null) {
+
+        component.parentElement.removeChild(component);
+    }
 };
 
 const state = (view, actions) => ({
 
     render: model => {
 
-        let component = document.getElementById(model.id);
+        if (!model.show) {
 
-        if (component === null) {
-
-            document.body.appendChild(view(model, actions));
+            destroy(model);
         } else {
 
-            outerHTML(component, view(model, actions));
-        }
+            let component = document.getElementById(model.id);
 
-        nap(model);
+            if (component === null) {
+
+                document.body.appendChild(view(model, actions));
+            } else {
+
+                outerHTML(component, view(model, actions));
+            }
+        }
     }
 });
 

@@ -1,0 +1,17 @@
+.controls {
+    float: right;
+    position: relative;
+    height: 44px;
+}
+
+.button {
+    background: transparent;
+    border-radius: 2px;
+    border: 1px solid #00afff;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 12px;
+    margin: 8px 4px;
+    padding: 7px 11px;
+}

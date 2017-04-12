@@ -5,9 +5,9 @@ import {
 } from '../utils/elements';
 
 import Logo from '../logo/index';
-import LoginModal from '../loginModal/index';
 import Navigation from '../navigation/index';
-import Join from '../join/index';
+import Authentication from '../authentication/index';
+
 
 const view = (model, intents) => {
 
@@ -17,9 +17,7 @@ const view = (model, intents) => {
 
         Navigation.createElement(),
 
-        Join.createElement(),
-
-        button({ className: styles.login, onclick: LoginModal.intents.toggle }, `Login`)
+        Authentication.createElement()
     );
 };
 

@@ -14,14 +14,16 @@ import {
     span,
 } from '../utils/elements';
 
+/*import Translation as t from '../translation/index';*/
 import Join from '../join/index';
 import Icon from '../icon/index';
+import Forgot from '../forgot/index';
 
 const view = (model, intents) =>
 
     div({ id: model.id, className: styles.loginForm },
 
-        form({ id: model.form.id, className: styles.section },
+        form({ id: model.form.id, className: styles.section, onsubmit: intents.login },
 
             div({ className: styles.wrapper },
 
@@ -30,9 +32,11 @@ const view = (model, intents) =>
                     className: styles.input,
                     id: model.form.username.id,
                     name: model.form.username.name,
+                    /*placeholder: t('LOGIN_FORM_PLACEHOLDER_USERNAME'),*/
                     placeholder: 'Username',
                     required: true,
                     type: 'text',
+                    value: 'johntest1'
                 }),
 
                 Icon.createElement({
@@ -52,6 +56,7 @@ const view = (model, intents) =>
                     placeholder: 'Password',
                     required: true,
                     type: 'password',
+                    value: 'password1234'
                 }),
 
                 Icon.createElement({
@@ -61,10 +66,10 @@ const view = (model, intents) =>
                 })
             ),
 
-            button({
+            input({
+                type: 'submit',
                 className: styles.login,
                 id: model.form.submit.id,
-                onclick: intents.login
             }, `Login`),
 
             div({ className: styles.wrapper },
@@ -74,18 +79,12 @@ const view = (model, intents) =>
                     input({
                         type: 'checkbox',
                         checked: model.form.remember ? 'checked' : ''
-                    }),
-
-                    `Save username`
-                )
+                    }), `Save username`)
             ),
 
             div({ className: styles.wrapper },
 
-                a({
-                    className: styles.forgot,
-                    onclick: () => console.log('ForgotLoginModal')
-                }, `Forgot your username/password?`)
+                Forgot.createElement()
             )
         ),
 

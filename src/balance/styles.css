@@ -1,0 +1,13 @@
+.button {
+    background-color: rgba(0, 175, 255, 0.2);
+    border-radius: 2px;
+    border: 1px solid #00afff;
+    color: #fff;
+    margin: 8px 4px;
+    outline: 0;
+    padding: 7px 11px;
+}
+
+.icon {
+    margin-left: 2px;
+}

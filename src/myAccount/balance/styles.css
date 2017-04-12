@@ -1,0 +1,76 @@
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 12px;
+    padding: 0 12px;
+}
+
+.balance {
+    border-bottom: 1px solid #00214f;
+    display: inline-block;
+    padding: 12px 0;
+    width: 100%;
+}
+
+.title {
+    color: #fff;
+    float: left;
+    font-size: 12px;
+    line-height: 15px;
+    width: 50%;
+}
+
+.subtitle {
+    color: #00afff;
+    display: block;
+    font-size: 10px;
+    font-style: italic;
+    line-height: 12px;
+}
+
+.amount {
+    color: #fff;
+    float: right;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: right;
+    width: 50%;
+}
+
+.wrapper > .balance:first-child .amount {
+    font-size: 16px;
+}
+
+.wrapper > .balance:last-child {
+    border-bottom: 0;
+}
+
+.wrapper > .balance:last-child .title {
+    /*font-size: 16px;*/
+}
+
+.balance > .balance {
+    padding: 6px 0 6px 12px;
+    opacity: 0.7;
+    border-bottom: 0;
+}
+
+.balance > .balance:first-child {
+    padding-top: 12px;
+}
+
+.balance > .balance:last-child {
+    padding-bottom: 0px;
+}
+
+.balance > .balance .amount {
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.balance > .balance > .balance {
+    opacity: 0.6;
+    padding: 4px 0 4px 12px;
+    border-bottom: 0;
+}

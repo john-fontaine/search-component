@@ -1,17 +1,33 @@
 import { outerHTML } from 'diffhtml';
 
-const state = view => ({
+const destroy = model => {
+
+    const component = document.getElementById(model.modal.id);
+
+    if (component !== null) {
+
+        component.parentElement.removeChild(component);
+    }
+};
+
+const state = (view, actions) => ({
 
     render: model => {
 
-        let component = document.getElementById(model.modal.id);
+        if (!model.modal.show) {
 
-        if (component === null) {
-
-            document.body.appendChild(view(model));
+            destroy(model);
         } else {
 
-            outerHTML(component, view(model));
+            let component = document.getElementById(model.modal.id);
+
+            if (component === null) {
+
+                document.body.appendChild(view(model, actions));
+            } else {
+
+                outerHTML(component, view(model, actions));
+            }
         }
     }
 });

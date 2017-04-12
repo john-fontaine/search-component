@@ -11,8 +11,7 @@ const view = model =>
         iframe({
             id: model.iframe.id,
             src: model.iframe.url,
-            className: styles.iframe,
-            frameborder: 0
+            className: styles.iframe
         })
     );
 

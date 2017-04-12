@@ -1,0 +1,8 @@
+.iframe {
+    border-image-width: 0;
+    border: 0;
+    height: 550px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 998px;
+}
